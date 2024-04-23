@@ -18,20 +18,19 @@ Ansible will also be helping us create a cron job the checks the servers uptime 
 
 ## BREAK DOWN OF THE REPO
 
-Looking at the repo above you can tell that there are just 2 directorties present. which are:
+Looking at the repo above you can tell that there is just  directorties and a file containing the bash script present. which are:
 
-- Ansible-playbook
+- Ansible
 - bash-script
 
 We will be looking at each one to get a deeper understanding of what the two directories do.
 
 ---
-### Ansible-Playbook
+### Ansible
 
-Going into the ansible playbook you would discover there are 3 files present:
+Going into the ansible playbook you would discover there are 2 files present:
 
-- ansible.cfg
-- bash.yml
+- playbook.yml
 - inventory
 
 The ansible.cfg file holds all our configuration for ansible.
@@ -40,9 +39,7 @@ The bash.yaml holds all the tasks and plays you are going to run
 
 The inventory file holds the  domain or ip address you want to deploy the Laravel application to.
 
-There is also a directory named **roles** and this is where the ansible roles will be placed 
 
-> there are just 2 ansible roles which are:
 
 - copy_file
 - server_uptime
