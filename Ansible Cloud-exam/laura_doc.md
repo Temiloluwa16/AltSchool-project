@@ -1,6 +1,6 @@
 # DEPLOYMENT OF PHP LARAVEL ON UBUNTU LAMP STACK 
 
-![Alt text](<laravel slave.png>)
+![Alt text](<>)
 
 This documentation is a very simple explanation of how to use the repo above to run the laravel application on an Ubuntu machine with a LAMP (Linux, Apache, MySql and php) stack  present.
 
