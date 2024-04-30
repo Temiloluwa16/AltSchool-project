@@ -15,10 +15,10 @@ Ansible will also be helping us create a cron job the checks the servers uptime 
 
 ---
 # EXAM PROJECT DOCUMENTATION 
-### 1. the project contains the automation and provisioning of two Ubuntu-based servers, named “Master” and “Slave”, using Vagrant, with a bash script to automate the deployment of a LAMP (Linux, Apache, MySQL, PHP) stack, and cloned a PHP application from GitHub, with all necessary packages, and configured Apache web server and MySQL while using ansible to execute the bash script on the Slave node and cronjob to create check the server's uptime every 12:00am. the bash script is reusable and readable and can be accessible through the following repository: https://github.com/lukacaleb/MasterSlave-exams.git
+### 1. the project contains the automation and provisioning of two Ubuntu-based servers, named “Master” and “Slave”, using Vagrant, with a bash script to automate the deployment of a LAMP (Linux, Apache, MySQL, PHP) stack, and cloned a PHP application from GitHub, with all necessary packages, and configured Apache web server and MySQL while using ansible to execute the bash script on the Slave node and cronjob to create check the server's uptime every 12:00am. the bash script is reusable and readable and can be accessible through the following repository: https://github.com/Temiloluwa16/AltSchool-project.git
 
 ### 2. Provisioning of "master" and "slave"
-the file "vagrant-master.sh" when runned/executed, spines up the two ubuntu master and slave machines while creating a vagrantfile.
+the file "vagrant-up.sh" when runned/executed, spines up the two ubuntu master and slave machines while creating a vagrantfile.
 
 
 ### 3. laravel deployment on master node
@@ -38,16 +38,16 @@ in the absible-playbook directory contains ansible.cfg, inventory, play-slave.ym
 
 #### b. Iventory:-the inventory is a list of managed nodes, or hosts, that Ansible deploys and configures. this inventory carries the ip address of the slave node in this project.
 
-#### c. play-slave.yml:- the Ansible Playbook in this project contains the blueprint of automation tasks on the slave node, which are IT actions executed with limited manual effort, across an inventory of IT solutions.
+#### c. playbook.yml:- the Ansible Playbook in this project contains the blueprint of automation tasks on the slave node, which are IT actions executed with limited manual effort, across an inventory of IT solutions.
 
-#### d. files:- contains the file "lamp-slave.sh" which the playbook use to deploy laravel cloned from github repository only on the slave node. https://github.com/laravel/laravel.git
+#### d. files:- contains the file "lamp_deploy.sh" which the playbook use to deploy laravel cloned from github repository only on the slave node. https://github.com/laravel/laravel.git
 
 
 ![Ansble-playbook](<snapshorts/installations of ansible playbook to slave.PNG>)
 
-![ok=6](<snapshorts/continuation of ansible play book to slave.PNG>)
 
-![Slave IP@192.168.30.21](<snapshots/laravel-slave.png>)
+
+![laravel on slave node IP@192.168.56.5](<snapshots/laravel-slave.png>)
 
 ---
 The sript is now ready to run successfully
