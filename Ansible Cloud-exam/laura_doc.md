@@ -24,12 +24,8 @@ the file "vagrant-up.sh" when runned/executed, spines up the two ubuntu master a
 ### 3. laravel deployment on master node
 the file "lamp-master.sh" deploys laravel cloned from github repository only on the master node. https://github.com/laravel/laravel.
 
-![laravel on master node](<snapshorts/successfuly install laravel and all dependencies.PNG>)
+![laravel on master node](<snapshots/laravel on master node.png>)
 
-
-![laravel on master node](<snapshorts/laravel successfuly installed.PNG>)
-
-![master IP@192.168.30.20](<snapshorts/laravel page with master ip adress.PNG>)
 
 
 ### 4. the ansible playbook
@@ -43,7 +39,7 @@ in the absible-playbook directory contains ansible.cfg, inventory, play-slave.ym
 #### d. files:- contains the file "lamp_deploy.sh" which the playbook use to deploy laravel cloned from github repository only on the slave node. https://github.com/laravel/laravel.git
 
 
-![Ansble-playbook](<snapshorts/installations of ansible playbook to slave.PNG>)
+![Ansble-playbook](<snapshots/ansible playbook successfully.png>)
 
 
 
