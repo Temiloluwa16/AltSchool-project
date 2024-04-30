@@ -1,6 +1,5 @@
 # DEPLOYMENT OF PHP LARAVEL ON UBUNTU LAMP STACK 
 
-![AltSchool-project/laravel slave.png](<laravel >)
 
 This documentation is a very simple explanation of how to use the repo above to run the laravel application on an Ubuntu machine with a LAMP (Linux, Apache, MySql and php) stack  present.
 
@@ -15,50 +14,40 @@ And on the slave we are going to be using an ansible playbook to run the same sc
 Ansible will also be helping us create a cron job the checks the servers uptime every 12 AM
 
 ---
+# EXAM PROJECT DOCUMENTATION 
+### 1. the project contains the automation and provisioning of two Ubuntu-based servers, named “Master” and “Slave”, using Vagrant, with a bash script to automate the deployment of a LAMP (Linux, Apache, MySQL, PHP) stack, and cloned a PHP application from GitHub, with all necessary packages, and configured Apache web server and MySQL while using ansible to execute the bash script on the Slave node and cronjob to create check the server's uptime every 12:00am. the bash script is reusable and readable and can be accessible through the following repository: https://github.com/lukacaleb/MasterSlave-exams.git
 
-## HOW TO RUN THE SCRIPT
+### 2. Provisioning of "master" and "slave"
+the file "vagrant-master.sh" when runned/executed, spines up the two ubuntu master and slave machines while creating a vagrantfile.
 
-This script is very readable and reusable and because of that, it is flexible. The bash-scriptis to run when the master machine is up. 
-To run this script you will need to consider just 3 things
 
-1. Mysql database
-2. .ENV (laravel file)
-3. ansible.config file
+### 3. laravel deployment on master node
+the file "lamp-master.sh" deploys laravel cloned from github repository only on the master node. https://github.com/laravel/laravel.
 
-## MySql
+![laravel on master node](<snapshorts/successfuly install laravel and all dependencies.PNG>)
 
-Due to the fact that we are using parameters to create a database while running the script you will need just 2 arguments:
 
-```bash
-./bash-script bertha bertha
-```
-The 1st Argument is for the DB_USERNAME and DB_DATABASE
+![laravel on master node](<snapshorts/laravel successfuly installed.PNG>)
 
-The 2nd Argument is for the DB_PASSWORD
+![master IP@192.168.30.20](<snapshorts/laravel page with master ip adress.PNG>)
 
-> **NOTE**: whatever username and password you are using it must align with the username and password in the .env file
 
-## .ENV (laravel file)
+### 4. the ansible playbook
+in the absible-playbook directory contains ansible.cfg, inventory, play-slave.yml and a directory called "files"
+#### a. Ansible.cfg:- This is the brain and the heart of Ansible, the file that governs the behavior of all interactions performed by the control node.
 
-Since everything is running automatically we will also need to change the .env file automatically:
+#### b. Iventory:-the inventory is a list of managed nodes, or hosts, that Ansible deploys and configures. this inventory carries the ip address of the slave node in this project.
 
-```bash bertha bertha
-sudo sed -i 's/DB_DATABASE=laravel/DB_DATABASE=bertha/' /var/www/html/laravel/.env
+#### c. play-slave.yml:- the Ansible Playbook in this project contains the blueprint of automation tasks on the slave node, which are IT actions executed with limited manual effort, across an inventory of IT solutions.
 
-sudo sed -i 's/DB_DATABASE=laravel/DB_DATABASE=bertha/' /var/www/html/laravel/.env
+#### d. files:- contains the file "lamp-slave.sh" which the playbook use to deploy laravel cloned from github repository only on the slave node. https://github.com/laravel/laravel.git
 
-sudo sed -i 's/DB_PASSWORD=/DB_PASSWORD=bertha/' /var/www/html/laravel/.env
-```
 
-Make sure this three lines correspond with the argument you will be adding while running the script.
+![Ansble-playbook](<snapshorts/installations of ansible playbook to slave.PNG>)
 
-You can find this code in the **bash-script** "LAMP.sh" file and make changes to only the results after the = symbol on the right hand side.
+![ok=6](<snapshorts/continuation of ansible play book to slave.PNG>)
 
-## Ansible.config file
-
-In the **bash-script** file there is a section for the ansible config file.
-
-In this path all you will need to change is the **ServerName** and you will be changing this to the domain name or ip address of the server you want to run the script on.
+![Slave IP@192.168.30.21](<snapshots/laravel-slave.png>)
 
 ---
 The sript is now ready to run successfully
